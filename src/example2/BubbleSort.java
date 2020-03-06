@@ -8,7 +8,7 @@ import java.util.List;
  * @author tadaki
  * @param <T>
  */
-public class BubbleSort<T extends Comparable> extends AbstractSort<T>{
+public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T>{
 
     public BubbleSort(List<T> list) {
         super(list);

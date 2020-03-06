@@ -23,7 +23,7 @@ public class Main2 {
             new Student("Ann", 6, 78),
             new Student("Beth", 7, 90)
         };
-        AbstractSort sort = new MergeSort(Arrays.asList(list));
+        AbstractSort<Student> sort = new MergeSort<>(Arrays.asList(list));
         List<Student> output = sort.sort();
         if (sort.isSorted()) {
             output.stream().forEachOrdered(s -> System.out.println(s));

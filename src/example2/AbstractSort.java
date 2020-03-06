@@ -7,7 +7,7 @@ import java.util.List;
  * @author tadaki
  * @param <T>
  */
-public abstract class AbstractSort<T extends Comparable> {
+public abstract class AbstractSort<T extends Comparable<T>> {
 
     protected final List<T> list;
 

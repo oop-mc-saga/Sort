@@ -6,7 +6,7 @@ import java.util.List;
  *
  * @author tadaki
  */
-public class SelectionSort<T extends Comparable> extends AbstractSort<T> {
+public class SelectionSort<T extends Comparable<T>> extends AbstractSort<T> {
 
     public SelectionSort(List<T> list) {
         super(list);

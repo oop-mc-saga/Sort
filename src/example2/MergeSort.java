@@ -9,7 +9,7 @@ import java.util.List;
  * @author tadaki
  * @param <T>
  */
-public class MergeSort<T extends Comparable> extends AbstractSort<T> {
+public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
 
 
     public MergeSort(List<T> list) {
