@@ -45,7 +45,7 @@ public class MergeSort {
         sortSub(middle, right);
         //リストの結合
         List<Student> tmpList = mergeList(left, middle, right);
-        //tmpListからの上書き
+        //tmpListからlistへの上書き
         for (int p = 0; p < tmpList.size(); p++) {
             list.set(left + p, tmpList.get(p));
         }
@@ -90,22 +90,26 @@ public class MergeSort {
 
     /**
      * リストのi番の要素がj番の要素より小さい場合に真
+     *
      * @param i
      * @param j
-     * @return 
+     * @return
      */
     private boolean less(int i, int j) {
         return (list.get(i).getRecord() < list.get(j).getRecord());
     }
-    
+
     /**
      * リストが整列済みかを判定
+     *
      * @return 整列済みならばtrue
      */
-    public boolean isSorted(){
+    public boolean isSorted() {
         boolean b = true;
-        for(int i=0;i<list.size()-1;i++){
-            if(!less(i,i+1))return false;
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (!less(i, i + 1)) {
+                return false;
+            }
         }
         return b;
     }
