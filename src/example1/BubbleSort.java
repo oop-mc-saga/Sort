@@ -32,14 +32,27 @@ public class BubbleSort<T extends Comparable<T>> {
         return list;
     }
 
+    /**
+     * リストのi番目の要素とj番目の要素を入れ替える
+     * @param i
+     * @param j 
+     */
     private void swap(int i, int j) {
-        T t = list.get(i);
-        list.set(i, list.get(j));
-        list.set(j, t);
+
+        
+        
     }
 
+    /**
+     * リストのi番目の要素がj番目の要素より小さければ真
+     * @param i
+     * @param j
+     * @return 
+     */
     private boolean less(int i, int j) {
-        return (list.get(i).compareTo(list.get(j)) < 0);
+
+
+
     }
 
     public boolean isSorted() {
