@@ -36,18 +36,13 @@ public class MergeSort {
         if (right <= left) {
             throw new IllegalArgumentException("illegal range");
         }
-        if (right == left + 1) {//整列完了
-            return;
-        }
-        int middle = (right + left) / 2;
-        //再帰呼び出し
-        sortSub(left, middle);
-        sortSub(middle, right);
-        //リストの結合
-        List<Student> tmpList = mergeList(left, middle, right);
-        //tmpListからlistへの上書き
-        for (int p = 0; p < tmpList.size(); p++) {
-            list.set(left + p, tmpList.get(p));
+        if (right > left + 1) {
+            int middle = (right + left) / 2;
+            //再帰呼び出し
+            sortSub(left, middle);
+            sortSub(middle, right);
+            //リストの結合
+            mergeList(left, middle, right);
         }
     }
 
@@ -59,7 +54,7 @@ public class MergeSort {
      * @param right 右側要素の終端＋１
      * @return
      */
-    private List<Student> mergeList(int left, int middle, int right) {
+    private void mergeList(int left, int middle, int right) {
         List<Student> tmp = new ArrayList<>();
         int leftIndex = left;
         int rightIndex = middle;
@@ -69,13 +64,13 @@ public class MergeSort {
                 for (int k = rightIndex; k < right; k++) {
                     tmp.add(list.get(k));
                 }
-                return tmp;
+                break;
             }
             if (rightIndex >= right) {//右側終了
                 for (int k = leftIndex; k < middle; k++) {
                     tmp.add(list.get(k));
                 }
-                return tmp;
+                break;
             }
             if (less(leftIndex, rightIndex)) {//左先頭<右先頭
                 tmp.add(list.get(leftIndex));
@@ -85,7 +80,10 @@ public class MergeSort {
                 rightIndex++;
             }
         }
-        return tmp;
+        //tmpListからlistへの上書き
+        for (int p = 0; p < tmp.size(); p++) {
+            list.set(left + p, tmp.get(p));
+        }
     }
 
     /**
