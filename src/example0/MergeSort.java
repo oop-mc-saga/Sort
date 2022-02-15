@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MergeSortの基本的実装
+ * MergeSort
  *
  * @author tadaki
  */
@@ -17,9 +17,9 @@ public class MergeSort {
     }
 
     /**
-     * 整列の実行
+     * entry for sorting
      *
-     * @return 整列済みのリスト
+     * @return sorted list
      */
     public List<Student> sort() {
         sortSub(0, list.size());
@@ -27,10 +27,10 @@ public class MergeSort {
     }
 
     /**
-     * 再帰的整列
+     * recursive sort algorithm
      *
-     * @param left リストの整列対象のうち左端のインデクス
-     * @param right リストの整列対象のうち右端のインデクス＋１
+     * @param left left-most index of target list
+     * @param right right-most index of target list plus 1
      */
     private void sortSub(int left, int right) {
         if (right <= left) {
@@ -38,41 +38,41 @@ public class MergeSort {
         }
         if (right > left + 1) {
             int middle = (right + left) / 2;
-            //再帰呼び出し
+            //recursive call
             sortSub(left, middle);
             sortSub(middle, right);
-            //リストの結合
+            //merge two sorted list
             mergeList(left, middle, right);
         }
     }
 
     /**
-     * リストの結合
+     * merge two sorted list
      *
-     * @param left 左端
-     * @param middle 右側要素の先頭
-     * @param right 右側要素の終端＋１
+     * @param left left-most index
+     * @param middle start index of right part
+     * @param right right-most index ＋１
      * @return
      */
     private void mergeList(int left, int middle, int right) {
         List<Student> tmp = new ArrayList<>();
         int leftIndex = left;
         int rightIndex = middle;
-        //左右両方のリストが終了するまで繰り返す
+        //repeat until end of both lists 
         while (leftIndex < middle || rightIndex < right) {
-            if (leftIndex >= middle) {//左側終了
+            if (leftIndex >= middle) {//left list completed
                 for (int k = rightIndex; k < right; k++) {
                     tmp.add(list.get(k));
                 }
                 break;
             }
-            if (rightIndex >= right) {//右側終了
+            if (rightIndex >= right) {//right list completed
                 for (int k = leftIndex; k < middle; k++) {
                     tmp.add(list.get(k));
                 }
                 break;
             }
-            if (less(leftIndex, rightIndex)) {//左先頭<右先頭
+            if (less(leftIndex, rightIndex)) {//head of left < head of right
                 tmp.add(list.get(leftIndex));
                 leftIndex++;
             } else {
@@ -80,14 +80,14 @@ public class MergeSort {
                 rightIndex++;
             }
         }
-        //tmpListからlistへの上書き
+        //copy tmpList into list
         for (int p = 0; p < tmp.size(); p++) {
             list.set(left + p, tmp.get(p));
         }
     }
 
     /**
-     * リストのi番の要素がj番の要素より小さい場合に真
+     * True if i-th element is less than j-th one
      *
      * @param i
      * @param j
@@ -98,9 +98,9 @@ public class MergeSort {
     }
 
     /**
-     * リストが整列済みかを判定
+     * Confirm the target is sorted
      *
-     * @return 整列済みならばtrue
+     * @return true if sorted
      */
     public boolean isSorted() {
         boolean b = true;

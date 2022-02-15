@@ -1,14 +1,14 @@
 package example0;
 
 /**
- * 整列対象となるクラス
+ * target class for sorting
  *
  * @author tadaki
  */
 public class Student {
 
-    final String name;//名前
-    final int id;//番号
+    final String name;
+    final int id;
     private int record;
 
     public Student(String name, int id, int record) {
@@ -26,7 +26,7 @@ public class Student {
     }
 
     /**
-     * インスタンスを文字列化
+     * convert instance to string
      *
      * @return
      */

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 基本となるMergeSortの例題
+ * Example of fundamenal part of MergeSort
  *
  * @author tadaki
  */
@@ -25,7 +25,7 @@ public class Main0 {
         };
         MergeSort sort = new MergeSort(Arrays.asList(list));
         List<Student> output = sort.sort();
-        if (sort.isSorted()) {//ソート済みならば結果を出力
+        if (sort.isSorted()) {//show sorted result
             output.stream().forEachOrdered(s -> System.out.println(s));
         }
     }
