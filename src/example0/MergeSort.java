@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MergeSort
+ * MergeSort: first implementation
  *
  * @author tadaki
  */
@@ -17,7 +17,7 @@ public class MergeSort {
     }
 
     /**
-     * entry for sorting
+     * Start sorting
      *
      * @return sorted list
      */
@@ -59,25 +59,23 @@ public class MergeSort {
         int leftIndex = left;
         int rightIndex = middle;
         //repeat until end of both lists 
-        while (leftIndex < middle || rightIndex < right) {
-            if (leftIndex >= middle) {//left list completed
-                for (int k = rightIndex; k < right; k++) {
-                    tmp.add(list.get(k));
-                }
-                break;
-            }
-            if (rightIndex >= right) {//right list completed
-                for (int k = leftIndex; k < middle; k++) {
-                    tmp.add(list.get(k));
-                }
-                break;
-            }
+        while (leftIndex < middle && rightIndex < right) {
             if (less(leftIndex, rightIndex)) {//head of left < head of right
                 tmp.add(list.get(leftIndex));
                 leftIndex++;
             } else {
                 tmp.add(list.get(rightIndex));
                 rightIndex++;
+            }
+        }
+        if (leftIndex >= middle) {//left list completed
+            for (int k = rightIndex; k < right; k++) {
+                tmp.add(list.get(k));
+            }
+        }
+        if (rightIndex >= right) {//right list completed
+            for (int k = leftIndex; k < middle; k++) {
+                tmp.add(list.get(k));
             }
         }
         //copy tmpList into list
