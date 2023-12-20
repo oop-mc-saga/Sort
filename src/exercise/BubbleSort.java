@@ -17,9 +17,9 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T>{
     }
 
     /**
-     * 整列の実行
+     * entry for sorting
      *
-     * @return 整列済みのリスト
+     * @return sorted list
      */
     @Override
     public List<T> sort() {

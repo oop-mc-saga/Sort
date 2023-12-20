@@ -5,24 +5,20 @@ import java.util.List;
 /**
  *
  * @author tadaki
+ * @param <T>
  */
 public abstract class AbstractSort<T extends Comparable<T>> {
-    
+
     protected final List<T> list;
 
     public AbstractSort(List<T> list) {
         this.list = list;
     }
 
-    /**
-     * 整列の実行
-     *
-     * @return 整列済みのリスト
-     */
-    public abstract List<T> sort();
+    abstract public List<T> sort();
 
     /**
-     * リストのi番の要素がj番の要素より小さい場合に真
+     * True if i-th element is less than j-th one
      *
      * @param i
      * @param j
@@ -33,9 +29,21 @@ public abstract class AbstractSort<T extends Comparable<T>> {
     }
 
     /**
-     * リストが整列済みかを判定
+     * Swap i-th and j-th elements in the list
      *
-     * @return 整列済みならばtrue
+     * @param i
+     * @param j
+     */
+    protected void swap(int i, int j) {
+        T t = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, t);
+    }
+
+    /**
+     * Confirm the target is sorted
+     *
+     * @return true if sorted
      */
     public boolean isSorted() {
         boolean b = true;
@@ -46,5 +54,5 @@ public abstract class AbstractSort<T extends Comparable<T>> {
         }
         return b;
     }
-    
+
 }

@@ -4,22 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MergeSortの基本的実装
+ * MergeSort
  *
  * @author tadaki
- * @param <T> 整列対象のクラステンプレート
+ * @param <T> class template for target
  */
 public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
-
 
     public MergeSort(List<T> list) {
         super(list);
     }
 
     /**
-     * 整列の実行
+     * entry for sorting
      *
-     * @return 整列済みのリスト
+     * @return sorted list
      */
     @Override
     public List<T> sort() {
@@ -28,45 +27,45 @@ public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
     }
 
     /**
-     * 再帰的整列
+     * recursive sort algorithm
      *
-     * @param left リストの整列対象のうち左端のインデクス
-     * @param right リストの整列対象のうち右端のインデクス＋１
+     * @param left left-most index of target list
+     * @param right right-most index of target list plus 1
      */
     private void sortSub(int left, int right) {
         if (right <= left) {
             throw new IllegalArgumentException("illegal range");
         }
-        if (right == left + 1) {//整列完了
+        if (right == left + 1) {//completed?
             return;
         }
         int middle = (right + left) / 2;
-        //再帰呼び出し
+        //recursive call
         sortSub(left, middle);
         sortSub(middle, right);
-        //リストの結合
+        //merge two sorted list
         List<T> tmpList = mergeList(left, middle, right);
-        //tmpListからの上書き
+        ///copy tmpList into list
         for (int p = 0; p < tmpList.size(); p++) {
             list.set(left + p, tmpList.get(p));
         }
     }
 
     /**
-     * リストの結合
+     * merge two sorted list
      *
-     * @param left 左端
-     * @param middle 右側要素の先頭
-     * @param right 右側要素の終端＋１
+     * @param left left-most index
+     * @param middle start index of right part
+     * @param right right-most index ＋１
      * @return
      */
     private List<T> mergeList(int left, int middle, int right) {
         List<T> tmp = new ArrayList<>();
         int leftIndex = left;
         int rightIndex = middle;
-        //左右両方のリストが終了するまで繰り返す
+        //repeat until end of both lists 
         while (leftIndex < middle && rightIndex < right) {
-            if (less(leftIndex, rightIndex)) {//左先頭<右先頭
+            if (less(leftIndex, rightIndex)) {//head of left < head of right
                 tmp.add(list.get(leftIndex));
                 leftIndex++;
             } else {
@@ -74,18 +73,18 @@ public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
                 rightIndex++;
             }
         }
-            if (leftIndex >= middle) {//左側終了
-                for (int k = rightIndex; k < right; k++) {
-                    tmp.add(list.get(k));
-                }
-                return tmp;
+        if (leftIndex >= middle) {//left list completed
+            for (int k = rightIndex; k < right; k++) {
+                tmp.add(list.get(k));
             }
-            if (rightIndex >= right) {//右側終了
-                for (int k = leftIndex; k < middle; k++) {
-                    tmp.add(list.get(k));
-                }
-                return tmp;
+            return tmp;
+        }
+        if (rightIndex >= right) {//right list completed
+            for (int k = leftIndex; k < middle; k++) {
+                tmp.add(list.get(k));
             }
+            return tmp;
+        }
         return tmp;
     }
 
