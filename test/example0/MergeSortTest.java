@@ -18,6 +18,7 @@ public class MergeSortTest {
     private final List<Student> studentList;
     private final List<Student> sortedList;
     public MergeSortTest() {
+        // Creating a sample list for sorting 
         Student[] data = {
             new Student("Tom", 0, 88),
             new Student("Jane", 1, 80),
@@ -64,8 +65,6 @@ public class MergeSortTest {
         List<Student> expResult = sortedList;
         List<Student> result = instance.sort();
         Assert.assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
     }
 
     /**
@@ -79,8 +78,6 @@ public class MergeSortTest {
         boolean expResult = true;
         boolean result = instance.isSorted();
         Assert.assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
     }
     
 }
