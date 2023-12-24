@@ -15,13 +15,13 @@ public class Main0 {
      */
     static public void main(String args[]) {
         Student list[] = {
-            new Student("Tom", 1, 88),
-            new Student("Jane", 2, 80),
-            new Student("Ray", 3, 70),
-            new Student("Kim", 4, 75),
-            new Student("Jeff", 5, 85),
-            new Student("Ann", 6, 78),
-            new Student("Beth", 7, 90)
+            new Student("Tom", 0, 88),
+            new Student("Jane", 1, 80),
+            new Student("Ray", 2, 70),
+            new Student("Kim", 3, 75),
+            new Student("Jeff", 4, 85),
+            new Student("Ann", 5, 78),
+            new Student("Beth", 6, 90)
         };
         MergeSort sort = new MergeSort(Arrays.asList(list));
         List<Student> output = sort.sort();
