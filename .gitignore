@@ -2,7 +2,7 @@ build
 nbproject/private
 dist
 test
-!text/example1
+!test/example1
 example1
 example2
 exercise
