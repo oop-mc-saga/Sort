@@ -1,8 +1,9 @@
 build
 nbproject/private
 dist
-!test/example0
-test
+test/example1
+test/example2
+test/example3
 example1
 example2
 exercise
