@@ -15,8 +15,4 @@ public class SubClassA extends SuperClass{
         return "A";
     }
     
-    @Override
-    public int getValue() {
-        return super.getA() * b * b;
-    }
 }
