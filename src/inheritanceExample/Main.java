@@ -6,7 +6,7 @@ package inheritanceExample;
 public class Main {
 
     /**
-     * Observing inheritating super class
+     * Observing inheriting super class
      * 
      * @param args the command line arguments
      */
