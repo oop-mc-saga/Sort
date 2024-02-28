@@ -6,6 +6,8 @@ package inheritanceExample;
 public class Main {
 
     /**
+     * Observing inheritating super class
+     * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {
