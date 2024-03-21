@@ -16,6 +16,9 @@ The details are given at the lecture
 This package is for extracting a super class from existing classes. 
 The details are given at the lecture.
 ## `exercise`
+## `comparatorExample`
+Another way to implement a general sorting method is using the `Comparator` interface.
+The `Comparator` interface has `compare()` method.
 
 # Test Packages
 ## `example0`
