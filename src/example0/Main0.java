@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Example of fundamenal part of MergeSort
+ * Example of fundamental part of MergeSort
  *
  * @author tadaki
  */

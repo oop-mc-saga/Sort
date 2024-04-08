@@ -11,12 +11,21 @@ public class Student {
     final int id;
     private int record;
 
+    /**
+     * constructor
+     * 
+     * @param name name of student
+     * @param id   student id
+     * @param record record of student
+     */
     public Student(String name, int id, int record) {
         this.name = name;
         this.id = id;
         this.record = record;
     }
 
+    //****  getter and setter  ****
+    
     public int getRecord() {
         return record;
     }

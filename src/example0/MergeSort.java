@@ -12,6 +12,11 @@ public class MergeSort {
 
     final private List<Student> list;
 
+    /**
+     * constructor
+     * 
+     * @param list target list of students
+     */
     public MergeSort(List<Student> list) {
         this.list = list;
     }
@@ -52,7 +57,6 @@ public class MergeSort {
      * @param left left-most index
      * @param middle start index of right part
      * @param right right-most index ＋１
-     * @return
      */
     private void mergeList(int left, int middle, int right) {
         List<Student> tmp = new ArrayList<>();
